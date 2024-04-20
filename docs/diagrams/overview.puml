@@ -25,51 +25,89 @@ package Vehicles {
   package FPVVehicle {
     class Platform {
       RC Car (ready to drive)
+      XT30/60 connectors for Li-Ion batteries
     }
     class Payload {
-      - FPV camera
       - Static hook in front of the vehicle
     }
+    class Control {
+      - Ready to drive
+    }
+    class Camera {
+      - FPV Camera with mount
+      - FPV Goggles
+      - USB FPV feed
+    }
+
   }
   package CraneVehicle {
     class Platform {
-      RC car dev platform
-      - Needs work
+      RC car dev platform with XT connectors and some wireless comms
     }
     class Payload {
       Crane:
       - Able to rotate
       - Able to move string up and down
       - Able to toggle electromagnetic head
+      Electromagnet:
+      - 5V Power - battery lvl might be also okay
+      - Switch - toggleable from 3.3V
     }
+    class Control {
+      - Control for the platform - gas/brake and steering
+      - Control for crane - left-right rotation, up-down, magnet toggle
+    }
+    class Camera {
+      - External level cameras - 4 cameras
+      - Computer screen showing all 4 cameras simultaneously
+    }
+    
   }
 }
 
 package Infrastructure {
   package CentralControl {
-    class CentralPC {
-      ..Summary..
-      What is the central PC used for?
-    }
     package Lighting {
-      class MCU {}
-      class Button {}
-      class LEDStrips {}
+      class MCU {
+        NodeMCU ESP8266 board with WLED software
+      }
+      class Button {
+        Big button that can be pushed sideways with car
+      }
+      class LEDStrips {
+        Max 3 WS2812b per MCU
+      }
       Button --> MCU
       MCU --> LEDStrips
     }
 
-    class PSU {}
-
-    class Camera {
-      - Amount: 4
+    class PSU {
+      - PC PSU should be enough
+      - Powers LEDStrips
+      - Powers fans
+      - 
     }
-    Camera --> CentralPC : 4 cameras
+
+
     PSU --> Lighting : 5V and 12V
+    PSU --> Level2
 
     }
 
-    package OperatorControl {}
+    package OperatorControl {
+      class Camera {
+        - Amount: 4
+        - USB cameras
+      }
+      class PC { 
+        - OBS configuration
+        - Software to control the crane
+        - Recording setups
+        - Streaming setup for all 7 cameras
+      }
+      Camera --> PC : USB hub
+    }
+
 
     class ExternalCameras {
       - 4 USB Webcams for level overview
@@ -78,14 +116,10 @@ package Infrastructure {
       Streaming setups:
       + Crane operator sees 4 level cameras on one screen
       + Spectators see all cameras - level, room and fpv
-      
-      All camera feeds must be recorded. (at least combined feeds)
-    }
 
-    class TestingInterface {
-      ..Summary..
-      UI to run through the puzzle elements, toggle I/Os n stuff.
-      NOTE: May not be needed TBD -> depends on how lightning is connected
+      - IP camera for lvl room
+      - Laptop webcam for operator room
+      
     }
   }
 

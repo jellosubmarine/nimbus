@@ -1,0 +1,90 @@
+@startuml levels
+title Levels
+
+class Level0 {
+  - Door is blocked for the most part with light blocking cloth
+  - Instructors must be able to go to level room easily
+  - Lights are mainly off for operator room
+  - Tutorial area for controls
+  - 
+}
+
+class Level1 {
+   Task is to find a ramp and place it to get over a wall.
+   ...Layout...
+    - Ramp is blocked physically for FPV car but visible from level cam
+    - Ramp can be seen through one spot by FPV car 
+    - There is a marked spot to insert the ramp
+    - Ramp spot may need extra space for crane to operate TBD
+    - Marked button/wall for FPV to push for lights
+    - Reverse door that can be accessed from level 2 by FPV car
+    - Reverse door has to have a safe passage for wires
+   ...Lights...
+    - Ramp placement spot is marked
+    - Ramp pickup spot is marked
+   ...Task...
+    - Ramp has metal attachment points
+    - Ramp placement spot has permanent magnets with same placement as attachment points
+    - Ramp is upper bound so that crane cannot drive over it
+    - There is a opposite ramp so that the car doesnt have to jump
+}
+class Level2 {
+  ...Layout...
+    - Marked button somewhere for lights
+    - FPV car cannot see the mechanism that opens/enables the pass to level3
+    - Can be a height limited door
+    - Pile of non-metal things with a metal rod under them
+    - Place for the metal rod to complete the circuit
+    - Mechanism that lets car to pass to Level3
+  ...Lights...
+    - Lights for pile of stuff
+    - Crane door is marked
+    - Lights for mechanism & place for the rod
+  ...Task...
+    - Sailcar to move a platform/remove a wall
+    - Computer fans to move the sailcar
+    - Metal connectors to complete the circuit for the fans
+    - 
+}
+class Level3 {
+  ...Layout...
+    - No access for crane - sign saying so - The Dark Maze, no cranes allowed plakat
+    - Downramp for car
+    - Height block for crane/jump block for car
+    - Button for lights will be inside the labyrinth
+    - Some movable walls that are not visible for crane operator
+    - Movable walls have hook points
+    - Cover parts of labyrinth with roof
+    - Under the roof there is a wall that can or can not be moved
+    - Exit is a doorway
+  ...Lights...
+    - Maybe no light
+    - Maybe spotlight
+  ...Task...
+    - Movable wall design
+    - Pullable walls that will alter the labyrinth
+    - Pullable walls can not be pushable beyond limit
+}
+class Level4 {
+  ...Layout...
+    - Door that can be opened to level1 for crane passage
+    - Enclosure that holds the weapon under the fireplace
+    - Box is pullable by FPV car
+    - Weapon is not accessible by FPV car
+  ...Lights...
+    - Triggered by lvl3 lvl4 pass
+    - Crane door is marked
+    - Opening mechanism is marked (if applicable)
+    - Permanent glow under weapon
+  ...Task...
+    - Weapon is of metal and in a glass box - need a crane
+}
+
+class CentralStation {
+  - Cameras should be on a stand so that they can be more top down
+}
+
+
+
+
+@enduml

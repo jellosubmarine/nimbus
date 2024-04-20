@@ -1,0 +1,25 @@
+@startuml lights
+title Lightning
+
+package Lighting {
+      class MCU {
+        NodeMCU ESP8266 board with WLED software
+        - Connects button and leds
+        - preconfigured
+        - max 3 led strips allowed
+        - MUST have static IPs
+        - Use WLED app for control?
+      }
+      class Button {
+        - Guitar pedal buttons
+        - Need a mount/wall to hold the button
+        - Use button in reverse - use a wall as a button
+      }
+      class LEDStrips {
+        Max 3 WS2812b per MCU
+      }
+      Button --> MCU
+      MCU --> LEDStrips
+    }
+
+@enduml
